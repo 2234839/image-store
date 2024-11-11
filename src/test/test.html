@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片上传示例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>图片上传示例</h1>
+    <form id="uploadForm">
+        <input type="file" id="imageInput" accept="image/*" required>
+        <input type="text" id="apiKey" placeholder="输入API密钥" required>
+        <button type="submit">上传图片</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const imageFile = document.getElementById('imageInput').files[0];
+            const apiKey = document.getElementById('apiKey').value;
+            const resultDiv = document.getElementById('result');
+
+            if (!imageFile) {
+                resultDiv.textContent = '请选择一个图片文件';
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('image', imageFile);
+
+            try {
+                const response = await fetch('http://localhost:3000/upload', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    resultDiv.innerHTML = `
+                        <p>上传成功！</p>
+                        <p>文件名: ${data.filename}</p>
+                        <p>URL: <a href="${data.url}" target="_blank">${data.url}</a></p>
+                        <img src="${data.url}" alt="Uploaded image" style="max-width: 100%;">
+                    `;
+                } else {
+                    resultDiv.textContent = `上传失败: ${data.error}`;
+                }
+            } catch (error) {
+                resultDiv.textContent = `发生错误: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>
