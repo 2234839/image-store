@@ -2,6 +2,8 @@
 
 这是一个基于 Bun 和 Hono 框架开发的简单图床服务。它允许用户上传图片，并提供图片的 URL 以便访问。
 
+[English Version](README.md)
+
 ## 功能特点
 
 - 使用 Bun 运行时，性能优异
@@ -11,6 +13,8 @@
 - 支持 CORS，便于跨域请求
 
 ## 安装
+
+### 使用源代码
 
 1. 确保你已经安装了 Bun。如果没有，请访问 [Bun 官网](https://bun.sh/) 进行安装。
 
@@ -26,6 +30,19 @@
    ```bash
    bun install
    ```
+
+### 使用二进制文件
+
+你也可以从 [Releases](https://github.com/2234839/image-store/releases) 页面下载预编译的二进制文件。
+
+1. 下载适合你系统的二进制文件（Linux 或 Windows）。
+2. 使文件可执行（仅限 Linux）：
+   ```bash
+   chmod +x ./image-store-linux
+   ```
+3. 运行二进制文件：
+   - Linux: `./image-store-linux`
+   - Windows: 双击 `image-store-windows.exe` 或从命令行运行
 
 ## 配置
 

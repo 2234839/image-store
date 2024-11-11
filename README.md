@@ -2,6 +2,8 @@
 
 This is a simple image hosting service developed using Bun and the Hono framework. It allows users to upload images and provides URLs for accessing them.
 
+[中文版](README_CN.md)
+
 ## Features
 
 - High performance using the Bun runtime
@@ -11,6 +13,8 @@ This is a simple image hosting service developed using Bun and the Hono framewor
 - CORS support for cross-origin requests
 
 ## Installation
+
+### Using Source Code
 
 1. Ensure you have Bun installed. If not, visit the [Bun website](https://bun.sh/) for installation instructions.
 
@@ -26,6 +30,19 @@ This is a simple image hosting service developed using Bun and the Hono framewor
    ```bash
    bun install
    ```
+
+### Using Binary
+
+You can also download the pre-compiled binary for your platform from the [Releases](https://github.com/2234839/image-store/releases) page.
+
+1. Download the appropriate binary for your system (Linux or Windows).
+2. Make the file executable (Linux only):
+   ```bash
+   chmod +x ./image-store-linux
+   ```
+3. Run the binary:
+   - Linux: `./image-store-linux`
+   - Windows: Double-click `image-store-windows.exe` or run it from the command line
 
 ## Configuration
 
