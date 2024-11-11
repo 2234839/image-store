@@ -17,7 +17,7 @@
 2. 克隆此仓库：
 
    ```bash
-   git clone https://your-repository-url.git
+   git clone https://github.com/2234839/image-store.git
    cd bun-image-server
    ```
 

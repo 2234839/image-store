@@ -17,7 +17,7 @@ This is a simple image hosting service developed using Bun and the Hono framewor
 2. Clone this repository:
 
    ```bash
-   git clone https://your-repository-url.git
+   git clone https://github.com/2234839/image-store.git
    cd bun-image-server
    ```
 
